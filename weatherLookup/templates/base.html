@@ -11,6 +11,31 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <title>Hello, world!</title>
+    <style>
+        .good {
+            background-color: greenyellow;
+        }
+
+        .moderate {
+            background-color: blueviolet;
+        }
+
+        .usg {
+            background-color: magenta;
+        }
+
+        .unhealthy {
+            background-color: orangered;
+        }
+
+        .veryUnhealthy {
+            background-color: red;
+        }
+
+        .hazardous {
+            background-color: maroon;
+        }
+    </style>
 </head>
 
 <body>
@@ -30,9 +55,11 @@
 
 
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                <form class="d-flex" action="{% url 'home' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Enter Zip Code" aria-label="Search"
+                        name="ZipCode">
+                    <button class="btn btn-outline-primary" type="submit">LookUp</button>
                 </form>
             </div>
         </div>
